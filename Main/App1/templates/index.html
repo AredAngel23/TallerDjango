@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Django</title>
+    <link rel="stylesheet" href="{% static "styles.css" %}">
+</head>
+<body>
+    <h1>Hello World</h1>
+
+    {% for autor in autores %}
+    <li>
+        <a href="autor/{{ autor.id }}">{{ autor.nombre }}</a>
+    </li>
+    <ul>
+        {% for profesion in autor.profesion.all %}
+        <li>{{ profesion.nombre }}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+
+    <script src="{% static "script.js" %}"></script>
+</body>
+</html>
